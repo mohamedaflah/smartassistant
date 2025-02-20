@@ -11,6 +11,15 @@ import OpenApplicationImage from "/images/open-applicaitons.png";
 
 import EmailOutline from "/icons/email-outline.png";
 import LockOutline from "/icons/lock-outline.png";
+
+// svg icons
+
+import Modulation from "/icons/voice.svg";
+import ClipIcon from "/icons/clip.svg";
+import SearchIcon from "/icons/search-ai.svg";
+import UploadIcon from "/icons/upload-ai.svg";
+import AddIcon from "/icons/add-ai.svg";
+
 export {
   LoginSignupPageImage,
   AiGenerateImage,
@@ -22,4 +31,9 @@ export {
   TotalPatientsImage,
   EmailOutline,
   LockOutline,
+  ClipIcon,
+  Modulation,
+  SearchIcon,
+  UploadIcon,
+  AddIcon,
 };
