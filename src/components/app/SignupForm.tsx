@@ -15,12 +15,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { Checkbox } from "../ui/checkbox";
 
 export default function SignupForm() {
   const [date, setDate] = useState<Date>();
   const [popOpen, setPopOpen] = useState<boolean>(false);
   return (
-    <section className="w-[85%] md:w-[70%] bg-white shadow-2xl  shadow-maincolor/20 min-h-[60%] rounded-xl border border-gray-100 p-5">
+    <section className="w-[85%]  md:w-[70%] bg-white shadow-2xl  shadow-maincolor/20 min-h-[60%] rounded-xl border border-gray-100 p-5">
       <div className="w-full flex justify-center items-center relative">
         <Link to={"/login"} className="absolute left-0 ">
           <img src={BackArrow} alt="" />
@@ -139,7 +140,26 @@ export default function SignupForm() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full mt-8 px-3"></div>
+      <div className="flex flex-row gap-1.5 w-full mt-8 px-3 justify-center  items-center">
+        <Checkbox className="rounded-[3px] scale-100 border-gray-500" />
+        <h4 className="text-[11.4px]">
+          By signing up, you agree on having consent to{" "}
+          <Link to={""} className="underline text-maincolor font-semibold">
+            data privacy
+          </Link>{" "}
+          &
+          <Link to={""} className="underline text-maincolor font-semibold">
+            {" "}
+            HIPAA compliance
+          </Link>
+        </h4>
+      </div>
+      <div className="flex flex-row gap-1.5 w-full mt-8 px-3 justify-center  items-center">
+        <button className="h-10 rounded-md w-full bg-maincolor text-white ">
+          Sign up
+        </button>
+      </div>
+      <div className="flex flex-row gap-1.5 w-full mt-8 px-3 justify-center  items-center" />
     </section>
   );
 }
