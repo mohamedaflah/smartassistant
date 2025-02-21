@@ -29,68 +29,7 @@ export default function SignupForm() {
         <h2 className="text-2xl font-semibold text-maincolor">Sign Up</h2>
       </div>
       <div className="flex flex-col w-full mt-8 px-3">
-        <div className="flex flex-col gap-2">
-          <div className="w-full text-sm">
-            <h3 className="uppercase font-semibold">personal details</h3>
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <input
-              type="text"
-              className="h-10 w-full rounded-md border pl-5 pr-2  text-sm"
-              placeholder="First name"
-            />
-            <input
-              type="text"
-              className="h-10 w-full rounded-md border pl-5 pr-2  text-sm"
-              placeholder="Last name"
-            />
-            <Popover defaultOpen={popOpen} onOpenChange={setPopOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-full h-10 bg-transparent justify-between cursor-pointer  text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  {date ? (
-                    format(date, "PPP")
-                  ) : (
-                    <span className="text-foreground/45 ml-2">
-                      Date of birth
-                    </span>
-                  )}
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent align="start" className=" w-auto p-0">
-                <Calendar
-                  mode="single"
-                  captionLayout="dropdown-buttons"
-                  selected={date}
-                  onSelect={(date) => {
-                    setDate(date);
-                    setPopOpen(false);
-                  }}
-                  fromYear={1960}
-                  toYear={2030}
-                />
-              </PopoverContent>
-            </Popover>
-
-            <Select>
-              <SelectTrigger className="w-full h-10 border bg-transparent rounded-md shadow-none px-5 text-black ">
-                <span className="text-foreground/50">
-                  <SelectValue placeholder="Gender" />
-                </span>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="male">Male</SelectItem>
-                <SelectItem value="female">Female</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
+        
       </div>
       <div className="flex flex-col w-full mt-8 px-3">
         <div className="flex flex-col gap-2">
@@ -141,7 +80,7 @@ export default function SignupForm() {
         </div>
       </div>
       <div className="flex flex-row gap-1.5 w-full mt-8 px-3 justify-center  items-center">
-        <Checkbox className="rounded-[3px] scale-100 border-gray-500" />
+        <Checkbox className="rounded-[3px] scale-100 border-gray-500 " />
         <h4 className="text-[11.4px]">
           By signing up, you agree on having consent to{" "}
           <Link to={""} className="underline text-maincolor font-semibold">

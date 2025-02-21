@@ -4,6 +4,7 @@ import "./App.css";
 import { lazy } from "react";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import AddNewPatient from "./pages/NewPatient";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="add-patient" element={<AddNewPatient />} />
         </Route>
       </Routes>
     </main>
