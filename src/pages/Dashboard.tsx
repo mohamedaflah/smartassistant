@@ -1,3 +1,4 @@
+import AutoOpenDialog from "@/components/app/auto-open-dialog";
 import DashboardCard from "@/components/app/dashboard-card";
 import { DataTable } from "@/components/app/data-table";
 import { DoctorTableColumn } from "@/components/app/table-columns.tsx/doctor-table-col";
@@ -16,21 +17,28 @@ import {
   TotalPatientsImage,
   UploadIcon,
 } from "@/constants/asset-imports";
-import { doctors } from "@/constants/demmy";
+import { doctors as initialData } from "@/constants/demmy";
 import { ChevronUp, MessageCircleMore, Sparkle } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
+  const [doctors, setDoctors] = useState<IDoctor[]>(initialData);
+
   return (
     <main className="min-h-[100dvh] ">
+      <AutoOpenDialog setDoctors={setDoctors} />
       <section className="py-6 px-6 ">
         <header className="flex justify-between items-center">
-          <div className="justify-center flex-col items-center  inline-flex max-w-34 bg">
+          <Link
+            to={"/"}
+            className="justify-center flex-col items-center  inline-flex max-w-34 bg"
+          >
             <img src={PlusLogo} alt="" />
             <h3 className="text-[10px] text-center mt-2 text-maincolor tracking-[3px]">
               AI POWERED SMART ASSISTANT
             </h3>
-          </div>
+          </Link>
 
           <div className="h-12 px-5 bg-white rounded-3xl border  items-center hidden md:flex w-[35rem] ">
             <img src={SearchIcon} alt="" />
@@ -156,7 +164,7 @@ export default function Dashboard() {
             </div>
             <div className="xl:col-span-2 lg:col-span-1 h-14 lg:h-auto ">
               <section className="w-full lg:h-full mt-3 lg:mt-0 flex items-end justify-end lg:pr-6">
-                <Link to={""}>
+                <Link to={"/assistant"}>
                   {/* <img src={AiGenerateImage} alt="" /> */}
                   <div className="w-12 h-9 rounded-3xl bg-[#D1F3FF] flex justify-center items-center relative">
                     <Sparkle

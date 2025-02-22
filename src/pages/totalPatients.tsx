@@ -6,18 +6,19 @@ import {
 } from "@/components/ui/popover";
 import { PlusLogo } from "@/constants/asset-imports";
 import { ChevronUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function TotalPatients() {
   return (
     <main className="w-full min-h-[100dvh]">
       <section className="py-6 px-6">
         <div className="flex justify-between items-start">
-          <div className="justify-center flex-col items-center  inline-flex max-w-34 bg">
+          <Link to={'/'} className="justify-center flex-col items-center  inline-flex max-w-34 bg">
             <img src={PlusLogo} alt="" />
             <h3 className="text-[10px] text-center mt-2 text-maincolor tracking-[3px]">
               AI POWERED SMART ASSISTANT
             </h3>
-          </div>
+          </Link>
 
           <div className="hidden lg:block">
             <TotalPatientList />
