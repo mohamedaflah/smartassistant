@@ -1,7 +1,8 @@
 import { EmailOutline, LockOutline, PlusLogo } from "@/constants/asset-imports";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   return (
     <section className="w-[85%] md:w-[70%] bg-white shadow-2xl  shadow-maincolor/20 min-h-[60%] rounded-xl p-5">
       <div className="w-full flex flex-col justify-center items-center gap-2">
@@ -38,13 +39,19 @@ export default function LoginForm() {
           </div>
         </div>
         <div className="w-full mt-8">
-          <button className="w-full h-10 rounded-md flex justify-center items-center text-white bg-maincolor">
+          <button
+            onClick={() => navigate("/")}
+            className="w-full h-10 rounded-md flex justify-center items-center text-white bg-maincolor"
+          >
             Login
           </button>
         </div>
         <div className="w-full flex justify-center mt-8">
           <h5 className="text-maincolor text-sm">
-            New here? <Link to="/signup" className="font-semibold text-maincolor">Signup</Link>
+            New here?{" "}
+            <Link to="/signup" className="font-semibold text-maincolor">
+              Signup
+            </Link>
           </h5>
         </div>
       </form>

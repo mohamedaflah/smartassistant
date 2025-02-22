@@ -132,13 +132,13 @@ export default function PatientAddForm() {
             <div className="absolute bottom-3 right-3 flex gap-3">
               <button
                 onClick={() => canvasRef?.clear()}
-                className="h-9 px-4 bg-red-500 text-white rounded-lg"
+                className="h-9 px-4 bg-red-500/80 text-white rounded-lg"
               >
                 Clear
               </button>
               <button
                 onClick={() => canvasRef?.undo()}
-                className="h-9 px-4 bg-gray-500 text-white rounded-lg"
+                className="h-9 px-4 bg-gray-500/80 text-white rounded-lg"
               >
                 Undo
               </button>

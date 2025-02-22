@@ -1,7 +1,7 @@
 // import { EmailOutline, LockOutline, PlusLogo } from "@/constants/asset-imports";
 import { BackArrow } from "@/constants/asset-imports";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
@@ -19,6 +19,7 @@ import { Checkbox } from "../ui/checkbox";
 
 export default function SignupForm() {
   const [date, setDate] = useState<Date>();
+  const navigate = useNavigate();
   const [popOpen, setPopOpen] = useState<boolean>(false);
   return (
     <section className="w-[85%]  md:w-[70%] bg-white shadow-2xl  shadow-maincolor/20 min-h-[60%] rounded-xl border border-gray-100 p-5">
@@ -155,7 +156,10 @@ export default function SignupForm() {
         </h4>
       </div>
       <div className="flex flex-row gap-1.5 w-full mt-8 px-3 justify-center  items-center">
-        <button className="h-10 rounded-md w-full bg-maincolor text-white ">
+        <button
+          onClick={() => navigate("/")}
+          className="h-10 rounded-md w-full bg-maincolor text-white "
+        >
           Sign up
         </button>
       </div>
