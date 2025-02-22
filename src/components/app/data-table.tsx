@@ -5,6 +5,7 @@ import {
   ColumnFiltersState,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
@@ -47,6 +48,7 @@ export function DataTable<TData, TValue>({
     onRowSelectionChange: setRowSelection,
     onColumnFiltersChange: setColumnFilters,
     getPaginationRowModel: getPaginationRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
       rowSelection,
       columnFilters,
@@ -56,7 +58,7 @@ export function DataTable<TData, TValue>({
   return (
     <div className="w-full h-full  relative pb-16 ">
       <div className="flex items-center p-3">
-        <div className="flex items-center px-3 border rounded-md h-8 mb-3 shadow-sm w-[30%]">
+        <div className="flex items-center px-3 border rounded-md h-8 mb-3 shadow-sm lg:w-[41%] w-[60%]">
           <img src={SearchIcon} className="w-4" alt="" />
           <Input
             placeholder="Search..."
@@ -127,14 +129,23 @@ export function DataTable<TData, TValue>({
         <div className="flex gap-3 items-center">
           <div className="flex items-center gap-1.5">
             <span className="text-xs">Rows per page: </span>
-            <Select>
+            <Select
+              value={`${table.getState().pagination.pageSize}`}
+              onValueChange={(value) => {
+                table.setPageSize(Number(value));
+              }}
+            >
               <SelectTrigger className="w-14 text-xs ring-0 focus:ring-0 shadow-none bg-transparent outline-none border-none pl-1  pr-5">
-                <SelectValue placeholder="10" />
+                <SelectValue
+                  placeholder={table.getState().pagination.pageSize}
+                />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value={"10"}>10</SelectItem>
-                <SelectItem value={"11"}>11</SelectItem>
-                <SelectItem value="12">12</SelectItem>
+              <SelectContent side="top">
+                {[10, 20, 30, 40, 50].map((pageSize) => (
+                  <SelectItem key={pageSize} value={`${pageSize}`}>
+                    {pageSize}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -147,7 +158,7 @@ export function DataTable<TData, TValue>({
               <ChevronLeft className="w-3" />
             </button>
             <div className="h-10 flex items-center text-xs px-1 font-serif">
-              1/1
+              {table.getState().pagination.pageIndex + 1}/{table.getPageCount()}
             </div>
             <button
               onClick={() => table.nextPage()}

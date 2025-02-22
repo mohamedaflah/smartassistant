@@ -71,11 +71,12 @@ export default function Dashboard() {
           </div>
         </header>
         <section className="mt-8    ">
-          <div className="w-full  grid lg:grid-cols-12 lg:grid-rows-none grid-rows-3 ">
+          <div className="w-full  lg:grid lg:grid-cols-12 lg:grid-rows-none flex flex-col   ">
             <div className="lg:col-span-3   ">
               <div className="w-full h-12 flex items-center"></div>
               <div className="flex flex-col lg:mt-6 gap-4 lg:pr-12">
                 <DashboardCard
+                  path="total-patient"
                   title="Total Patients"
                   count={4}
                   imagePath={TotalPatientsImage}
@@ -153,7 +154,7 @@ export default function Dashboard() {
                 )}
               </div>
             </div>
-            <div className="xl:col-span-2 lg:col-span-1 ">
+            <div className="xl:col-span-2 lg:col-span-1 h-14 lg:h-auto ">
               <section className="w-full lg:h-full mt-3 lg:mt-0 flex items-end justify-end lg:pr-6">
                 <Link to={""}>
                   {/* <img src={AiGenerateImage} alt="" /> */}

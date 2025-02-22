@@ -123,6 +123,7 @@ export default function PatientAddForm() {
               brushColor="black" // Pen color
               canvasWidth={700} // Adjust size
               canvasHeight={500}
+              hideGrid
               //   brushRadius={2}
               // brushStyle="round" // Adjust brush style
               className="border rounded-md  w-full h-full object-cover"
