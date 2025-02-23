@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap");
 @import "tailwindcss";
 
+@plugin "tailwind-scrollbar";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -38,7 +39,7 @@
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
   --radius: 0.6rem;
-  --maincolor:hsl(195 75% 37%)
+  --maincolor: hsl(195 75% 37%);
 }
 
 .dark {
@@ -98,7 +99,6 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-maincolor: var(--maincolor);
-
 }
 
 @layer base {

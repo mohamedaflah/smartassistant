@@ -1,3 +1,8 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "https://smartassistant-nu.vercel.app/" }]
-  }
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "https://smartassistant-nu.vercel.app/"
+        }
+    ]
+}

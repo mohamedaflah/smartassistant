@@ -1,21 +1,38 @@
 import { ClipIcon, Modulation } from "@/constants/asset-imports";
-import React, { SetStateAction } from "react";
+import React, { SetStateAction, useRef, useState } from "react";
 
 interface NewChatEnryProp {
   setInitial: React.Dispatch<SetStateAction<boolean>>;
 }
 export default function NewChatEnry({ setInitial }: NewChatEnryProp) {
+  const [chatTxt, setChatTxt] = useState<string>("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const handleInput = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height
+      textareaRef.current.style.height = `${Math.min(
+        textareaRef.current.scrollHeight,
+        150
+      )}px`; // Set max height
+    }
+  };
   return (
     <div className="w-full mt-10 flex flex-col gap-5">
       <div className="flex justify-center">
         <h4 className="font-semibold text-3xl">What can I help you with ?</h4>
       </div>
-      <div className="w-full min-h-28 border bg-white rounded-tl-lg rounded-tr-lg rounded-bl-4xl rounded-br-4xl p-3 relative ">
+      <div className="w-full overflow-hidden pb-14 min-h-28 border bg-white rounded-tl-lg rounded-tr-lg rounded-bl-4xl rounded-br-4xl p-3 relative ">
         <textarea
-          className="w-full h-20 outline-none text-sm resize-none border-none"
+          ref={textareaRef}
+          value={chatTxt}
+          onChange={(e) => {
+            setChatTxt(e.target.value);
+            handleInput();
+          }}
+          className="w-full h-10 outline-none text-sm resize-none border-none scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200 "
           placeholder="Ask YPA anything  about your patients"
         />
-        <div className="absolute bottom-0  left-0 w-full min-h-12  flex justify-between items-start p-3">
+        <div className="absolute bg-white bottom-0  left-0 w-full min-h-12  flex justify-between items-start p-3">
           <button className="size-10 rounded-full bg-[#D1F3FF] flex justify-center items-center">
             <img src={ClipIcon} alt="" />
           </button>
